@@ -1,6 +1,16 @@
 <h1>タスク登録</h1>
 <%= form_for(@task) do |f| %>
 
+  <% if @task.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
