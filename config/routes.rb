@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'tasks/index'
 
-  resources :tasks do
+  resources :tasks, except: :show  do
   	member do
 	  patch 'finish'
 	end
