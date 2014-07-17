@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-  	@tasks = Task.where(status: 0).order("created_at desc").all
+  	@tasks = Task.where(status: [0, 1]).order("created_at desc").all
   end
 
   def new
