@@ -35,6 +35,13 @@ class TasksController < ApplicationController
 	@task.destroy
 	redirect_to :tasks
   end
+
+  def finish
+  	@task = Task.find(params[:id])
+	@task.update(status: 1)
+	redirect_to :tasks
+  end
+
   private
   def task_params
 	params.require(:task).permit(:title, :memo, :status)
