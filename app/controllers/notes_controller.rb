@@ -1,7 +1,10 @@
 class NotesController < ApplicationController
   def create
   	@task = Task.find(params[:task_id])
-	@task.notes.create(note_params)
+	@task.notes.create(
+		memo: note_params[:memo],
+		image: note_params[:image].read
+		)
  	redirect_to edit_task_path(@task) 
   end
   
@@ -14,7 +17,7 @@ class NotesController < ApplicationController
 
   def image
   	note = Note.find(params[:id])
-  	send_data(note.image, :type => "image/png")
+  	send_data(note.image, :type => "image/jpg")
   end
 
   private

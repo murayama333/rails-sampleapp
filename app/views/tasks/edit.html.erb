@@ -4,6 +4,7 @@
 <h2>メモ一覧</h2>
 <% @task.notes.each do |note| %>
     <div>
+		<%= image_tag image_task_note_path(@task, note), size: "160x160" %>
         <p>
 		  <%= note.memo %>
           <%= link_to '削除', [@task, note],
@@ -18,6 +19,10 @@
   <p>
     <%= f.label :memo %><br>
     <%= f.text_field :memo %>
+  </p>
+  <p>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </p>
   <p>
     <%= f.submit %>
