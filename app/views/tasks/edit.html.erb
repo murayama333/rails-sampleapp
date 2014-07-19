@@ -6,6 +6,9 @@
     <div>
         <p>
 		  <%= note.memo %>
+          <%= link_to '削除', [@task, note],
+                       method: :delete,
+					   data: { confirm: '削除してもよろしいですか？' } %>
 		</p>
 	</div>
 <% end %>
