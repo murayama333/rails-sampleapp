@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717213053) do
+ActiveRecord::Schema.define(version: 20140719044450) do
+
+  create_table "notes", force: true do |t|
+    t.string   "memo"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["task_id"], name: "index_notes_on_task_id"
 
   create_table "tasks", force: true do |t|
     t.string   "title"

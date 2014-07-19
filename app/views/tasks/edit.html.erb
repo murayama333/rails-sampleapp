@@ -1,3 +1,24 @@
 <h1>タスク更新</h1>
 <%= render 'form' %>
+
+<h2>メモ一覧</h2>
+<% @task.notes.each do |note| %>
+    <div>
+        <p>
+		  <%= note.memo %>
+		</p>
+	</div>
+<% end %>
+
+<h2>メモ登録</h2>
+<%= form_for([@task, @task.notes.build]) do |f| %>
+  <p>
+    <%= f.label :memo %><br>
+    <%= f.text_field :memo %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
 <%= link_to '戻る', tasks_path %>

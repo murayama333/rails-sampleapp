@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 
   def finish
   	@task = Task.find(params[:id])
-	@task.update(status: 1)
+	@task.update(status: 2)
 	redirect_to :tasks
   end
 
